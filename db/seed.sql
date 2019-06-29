@@ -1,0 +1,5 @@
+INSERT INTO burgers (burger_name) VALUES ('Cowboy')
+INSERT INTO burgers (burger_name) VALUES ('Beyond Meat')
+INSERT INTO burgers (burger_name) VALUES ('Epic Bacon')
+INSERT INTO burgers (burger_name) VALUES ('Monster')
+INSERT INTO burgers (burger_name) VALUES ('Heart Attack')
