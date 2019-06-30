@@ -6,7 +6,7 @@
  * 06-29-19
  ***********************/
 
-var connection = require("../config/connection");
+var connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
     var arr = [];
