@@ -30,15 +30,15 @@ module.exports = function (app) {
     });
   });
 
-  app.put("/api/burgers", function (req, res) {
+  app.put("/api/burgers/:id", function (req, res) {
     updateBurger = req.body;
 
     db.Burgers.update({
-      burger_name: updateBurger.name
+      devoured: updateBurger.devoured
     },
       {
         where: {
-          id: req.body.id
+          id: req.params.id
         }
       },
       {
@@ -48,7 +48,7 @@ module.exports = function (app) {
       })
   });
 
-  app.delete("/api/burgers", function (req, res) {
+  app.delete("/api/burgers/:id", function (req, res) {
     db.Burgers.destroy({
       where: {
         id: req.params.id
