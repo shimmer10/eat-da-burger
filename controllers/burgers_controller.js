@@ -6,60 +6,55 @@
  * 06-29-19
  ***********************/
 
-var express = require("express");
+var db = require("../models");
 
-var router = express.Router();
-
-var burger = require("../models/burger.js");
-
-router.get("/", function(req, res) {
-    burger.all(function(data) {
-        var hbsObject = {
-            burger: data
-        };
-        res.render("index", hbsObject);
-    });
-});
-
-router.post("/api/burgers", function(req, res) {
-    cat.create([
-      "text", "devoured"
-    ], [
-      req.body.text, req.body.devoured
-    ], function(result) {
-      // Send back the ID of the new quote
-      res.json({ id: result.insertId });
+module.exports = function (app) {
+  app.get("/", function (req, res) {
+    db.Burgers.findAll({}).then(function (result) {
+      var hbsObject = {
+        burgers: result
+      };
+      console.log("object: " + JSON.stringify(hbsObject));
+      res.render("index", hbsObject);
     });
   });
-  
-  router.put("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-  
-    console.log("condition", condition);
-  
-    cat.update({
-      devoured: req.body.devoured
-    }, condition, function(result) {
-      if (result.changedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
+
+
+  app.post("/api/burgers", function (req, res) {
+    var burger = req.body;
+
+    db.Burgers.create({
+      burger_name: burger.burger_name
+    }).then(function (result) {
+      res.redirect('back');
+    });
+  });
+
+  app.put("/api/burgers", function (req, res) {
+    updateBurger = req.body;
+
+    db.Burgers.update({
+      burger_name: updateBurger.name
+    },
+      {
+        where: {
+          id: req.body.id
+        }
+      },
+      {
+        fields: ['burger_name']
+      }).then(function (result) {
+        res.json(result);
+      })
+  });
+
+  app.delete("/api/burgers", function (req, res) {
+    db.Burgers.destroy({
+      where: {
+        id: req.params.id
       }
-    });
+    }).then(function (result) {
+      res.json(result);
+    })
   });
-  
-  router.delete("/api/burgers/:id", function(req, res) {
-    var condition = "id = " + req.params.id;
-  
-    cat.delete(condition, function(result) {
-      if (result.affectedRows == 0) {
-        // If no rows were changed, then the ID must not exist, so 404
-        return res.status(404).end();
-      } else {
-        res.status(200).end();
-      }
-    });
-  });
-
-module.exports = router;
+}

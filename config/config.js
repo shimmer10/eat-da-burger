@@ -4,17 +4,19 @@ module.exports = {
     "development": {
       "username": process.env.DB_USER,
       "password": process.env.DB_PASS,
-      "database": "todolist",
+      "database": "burger_db",
       "host": process.env.DB_HOST,
       "dialect": "mysql",
+      "port": 3306,
       "operatorsAliases": false
     },
     "test": {
       "username": process.env.DB_USER,
       "password": process.env.DB_PASS,
-      "database": "todolist",
+      "database": "burger_db",
       "host": process.env.DB_HOST,
       "dialect": "mysql",
+      "port": 3306,
       "operatorsAliases": false
     },
     "production": {
