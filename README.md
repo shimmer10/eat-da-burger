@@ -1,7 +1,7 @@
 # Eat-Da-Burger
 
 ## **Eat-Da-Burger is an app that allows people to add a burger and devour it**
-## **This app displays the use of MySQL, Node, Express, Handlebars and ORM**
+## **This app displays the use of MySQL, Node, Express, Handlebars, JawsDB and Sequelize**
 
 ## **Link to Heroku deployed site: https://ancient-caverns-49639.herokuapp.com/**
 ### **The user begins by creating a burger**
