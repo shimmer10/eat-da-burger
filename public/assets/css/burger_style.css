@@ -6,23 +6,40 @@
  * 06-29-19
  ***********************/
 
- li {
-    padding: 5px;
-    margin: 5px;
-    background: #faebd7;
-  }
+ body {
+  background-image: url("../img/sky-blue.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+ }
+
+ h5 {
+  margin-right: 20px;
+  float: left;
+}
   
-  .label {
-    font-weight: bold;
-  }
-  
-  .create-update-form {
-    padding: 5px;
-    margin: 5px;
-    background: aqua;
-  }
-  
-  .form-group {
-    margin-bottom: 5px;
-  }
+.card {
+  border: 1px solid lightskyblue !important;
+}
+
+.card-header {
+  background-color: lightskyblue !important;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.header {
+  -webkit-text-stroke: 1px white;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+  font-size: 75px;
+}
+
+.jumbotron {
+  background-image: url("../img/cloud-nine.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 5px solid lightskyblue;
+}
   

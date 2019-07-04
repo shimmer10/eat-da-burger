@@ -8,43 +8,88 @@
  ***********************/
  --}}
 
-<h1>Burgers!</h1>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap" rel="stylesheet">
+</head>
 
-<h2>Uneaten Burgers</h2>
-
-<ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-  <p>
-    {{burger_name}}
-    <button class="change-devour" data-id="{{id}}">
-      Devour it!
-    </button>
-  </p>
-  {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Eaten Burgers</h2>
-
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-  <p>
-    {{burger_name}}
-    <button class="delete-burger" data-id="{{this.id}}">DELETE!</button>
-  </p>
-  {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Create a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
+<div class="container">
+  <div class="jumbotron text-center">
+    <p class="header">Cloud 9 Burgers</p>
+    <p class="lead">Your one stop shop for creating new burgers!</p>
   </div>
+  <div class="row">
+    <div class="col-sm-4">
 
-  <button type="submit">Add Burger</button>
-</form>
+    </div>
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header">
+          Create Your Own Burger
+        </div>
+        <div class="card-body">
+          <form class="create-form">
+
+            <div class="form-group">
+              <label for="ca">Burger Name:</label>
+              <input type="text" id="ca" name="name">
+            </div>
+
+            <button class="btn-outline-info" type="submit">Create My Burger!</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">
+        Burgers Available to Eat
+        </div>
+        <div class="card-body">
+          <ul>
+            {{#each burgers}}
+            {{#unless devoured}}
+            <ul>
+              <h5 class="card-title">{{burger_name}}</h5>
+              <button class="change-devour btn-outline-primary" data-id="{{id}}">
+                Devour it!
+              </button>
+            </ul>
+            {{/unless}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="card-header">
+          Eaten Burgers
+        </div>
+        <div class="card-body">
+          <ul>
+            {{#each burgers}}
+            {{#if devoured}}
+            <ul>
+              <h5 class="card-title">{{burger_name}}</h5>
+              <button class="change-devour btn-outline-danger" data-id="{{id}}">
+                DELETE!
+              </button>
+            </ul>
+            {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
